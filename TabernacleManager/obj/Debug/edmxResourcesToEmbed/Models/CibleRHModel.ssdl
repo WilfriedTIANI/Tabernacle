@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CibleRhWebAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Avance">
+    <Key>
+      <PropertyRef Name="IdRequete" />
+    </Key>
+    <Property Name="IdRequete" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodeRequete" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IdEmploye" Type="int" Nullable="false" />
+    <Property Name="Montant" Type="int" />
+    <Property Name="Pourcentage" Type="int" Nullable="false" />
+    <Property Name="DelaiEnMois" Type="int" Nullable="false" />
+    <Property Name="MotifRequete" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="DateRequete" Type="datetime" Nullable="false" />
+    <Property Name="Statut" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MotifAnnulation" Type="varchar" MaxLength="255" />
+    <Property Name="MotifRejet" Type="varchar" MaxLength="255" />
+    <Property Name="IdRP" Type="int" />
+    <Property Name="TraitementRP" Type="bit" />
+    <Property Name="DateTraitementRP" Type="datetime" />
+    <Property Name="IdRE" Type="int" />
+    <Property Name="TraitementRE" Type="bit" />
+    <Property Name="DateTraitementRE" Type="datetime" />
+    <Property Name="IdDIR" Type="int" />
+    <Property Name="TraitementDIR" Type="bit" />
+    <Property Name="DateTraitementDIR" Type="datetime" />
+    <Property Name="Comptabilise" Type="bit" Nullable="false" />
+    <Property Name="AvanceEnvoyee" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employe">
+    <Key>
+      <PropertyRef Name="IdEmploye" />
+    </Key>
+    <Property Name="IdEmploye" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Matricule" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Prenom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Telephone" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="IdSociete" Type="int" Nullable="false" />
+    <Property Name="Statut" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Pwd" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateEnregistrement" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Portefeuille">
+    <Key>
+      <PropertyRef Name="IdUtilisateur" />
+      <PropertyRef Name="IdSociete" />
+    </Key>
+    <Property Name="IdUtilisateur" Type="int" Nullable="false" />
+    <Property Name="IdSociete" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Societe">
+    <Key>
+      <PropertyRef Name="IdSociete" />
+    </Key>
+    <Property Name="IdSociete" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RaisonSociale" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Utilisateur">
+    <Key>
+      <PropertyRef Name="IdUtilisateur" />
+    </Key>
+    <Property Name="IdUtilisateur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Prenom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Login" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Pwd" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Habilitation" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EstAdmin" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Employe_Societe">
+    <End Role="Societe" Type="Self.Societe" Multiplicity="1" />
+    <End Role="Employe" Type="Self.Employe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Societe">
+        <PropertyRef Name="IdSociete" />
+      </Principal>
+      <Dependent Role="Employe">
+        <PropertyRef Name="IdSociete" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Portefeuille_Societe">
+    <End Role="Societe" Type="Self.Societe" Multiplicity="1" />
+    <End Role="Portefeuille" Type="Self.Portefeuille" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Societe">
+        <PropertyRef Name="IdSociete" />
+      </Principal>
+      <Dependent Role="Portefeuille">
+        <PropertyRef Name="IdSociete" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Portefeuille_Utilisateur">
+    <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="1" />
+    <End Role="Portefeuille" Type="Self.Portefeuille" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilisateur">
+        <PropertyRef Name="IdUtilisateur" />
+      </Principal>
+      <Dependent Role="Portefeuille">
+        <PropertyRef Name="IdUtilisateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequeteAvance_Employe">
+    <End Role="Employe" Type="Self.Employe" Multiplicity="1" />
+    <End Role="Avance" Type="Self.Avance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employe">
+        <PropertyRef Name="IdEmploye" />
+      </Principal>
+      <Dependent Role="Avance">
+        <PropertyRef Name="IdEmploye" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequeteAvance_RE">
+    <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="0..1" />
+    <End Role="Avance" Type="Self.Avance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilisateur">
+        <PropertyRef Name="IdUtilisateur" />
+      </Principal>
+      <Dependent Role="Avance">
+        <PropertyRef Name="IdRE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequeteAvance_RP">
+    <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="0..1" />
+    <End Role="Avance" Type="Self.Avance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilisateur">
+        <PropertyRef Name="IdUtilisateur" />
+      </Principal>
+      <Dependent Role="Avance">
+        <PropertyRef Name="IdRP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequeteAvance_Utilisateur">
+    <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="0..1" />
+    <End Role="Avance" Type="Self.Avance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilisateur">
+        <PropertyRef Name="IdUtilisateur" />
+      </Principal>
+      <Dependent Role="Avance">
+        <PropertyRef Name="IdDIR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CibleRhWebAppModelStoreContainer">
+    <EntitySet Name="Avance" EntityType="Self.Avance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employe" EntityType="Self.Employe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Portefeuille" EntityType="Self.Portefeuille" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Societe" EntityType="Self.Societe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Utilisateur" EntityType="Self.Utilisateur" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Employe_Societe" Association="Self.FK_Employe_Societe">
+      <End Role="Societe" EntitySet="Societe" />
+      <End Role="Employe" EntitySet="Employe" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Portefeuille_Societe" Association="Self.FK_Portefeuille_Societe">
+      <End Role="Societe" EntitySet="Societe" />
+      <End Role="Portefeuille" EntitySet="Portefeuille" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Portefeuille_Utilisateur" Association="Self.FK_Portefeuille_Utilisateur">
+      <End Role="Utilisateur" EntitySet="Utilisateur" />
+      <End Role="Portefeuille" EntitySet="Portefeuille" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequeteAvance_Employe" Association="Self.FK_RequeteAvance_Employe">
+      <End Role="Employe" EntitySet="Employe" />
+      <End Role="Avance" EntitySet="Avance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequeteAvance_RE" Association="Self.FK_RequeteAvance_RE">
+      <End Role="Utilisateur" EntitySet="Utilisateur" />
+      <End Role="Avance" EntitySet="Avance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequeteAvance_RP" Association="Self.FK_RequeteAvance_RP">
+      <End Role="Utilisateur" EntitySet="Utilisateur" />
+      <End Role="Avance" EntitySet="Avance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequeteAvance_Utilisateur" Association="Self.FK_RequeteAvance_Utilisateur">
+      <End Role="Utilisateur" EntitySet="Utilisateur" />
+      <End Role="Avance" EntitySet="Avance" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,153 @@
+﻿@model IEnumerable<CibleWebForms.Models.Avance>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CodeRequete)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Montant)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pourcentage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DelaiEnMois)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MotifRequete)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateRequete)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Statut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MotifAnnulation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MotifRejet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TraitementRP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTraitementRP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TraitementRE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTraitementRE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TraitementDIR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTraitementDIR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comptabilise)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AvanceEnvoyee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employe.Matricule)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RespExploitation.Prenom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RespPortefeuille.Prenom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Directeur.Prenom)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodeRequete)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Montant)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pourcentage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DelaiEnMois)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MotifRequete)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateRequete)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Statut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MotifAnnulation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MotifRejet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TraitementRP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateTraitementRP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TraitementRE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateTraitementRE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TraitementDIR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateTraitementDIR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comptabilise)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AvanceEnvoyee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employe.Matricule)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RespExploitation.Prenom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RespPortefeuille.Prenom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Directeur.Prenom)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdRequete }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdRequete }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdRequete })
+        </td>
+    </tr>
+}
+
+</table>

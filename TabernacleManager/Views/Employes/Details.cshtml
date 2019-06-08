@@ -1,0 +1,98 @@
+﻿@model TabernacleManager.Models.Employe
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Employe</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Matricule)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Matricule)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Prenom)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Prenom)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Nom)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Nom)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Telephone)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Telephone)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Statut)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Statut)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Pwd)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Pwd)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DateEnregistrement)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DateEnregistrement)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Societe.RaisonSociale)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Societe.RaisonSociale)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.IdEmploye }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

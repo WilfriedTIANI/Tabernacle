@@ -1,0 +1,74 @@
+﻿@model TabernacleManager.Models.Utilisateur
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Utilisateur</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Prenom)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Prenom)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Nom)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Nom)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Login)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Login)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Pwd)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Pwd)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Habilitation)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Habilitation)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.EstAdmin)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.EstAdmin)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.IdUtilisateur }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

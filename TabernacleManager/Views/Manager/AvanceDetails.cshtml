@@ -1,0 +1,210 @@
+﻿@model TabernacleManager.Models.TabernacleManagerView
+
+<section class="content-header">
+    <h1>
+        Details De L'Avance
+        <small> </small>
+    </h1>
+</section>
+
+<!-- Main content -->
+<section class="content container-fluid" >
+
+
+    <div class="align-middle">
+        <h4></h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Avances[0].CodeRequete)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Avances[0].CodeRequete)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Avances[0].Montant)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Avances[0].Montant)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Avances[0].Pourcentage)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Avances[0].Pourcentage)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Avances[0].DelaiEnMois)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Avances[0].DelaiEnMois)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Avances[0].MotifRequete)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Avances[0].MotifRequete)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Avances[0].DateRequete)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Avances[0].DateRequete)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Avances[0].Statut)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Avances[0].Statut)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Avances[0].MotifAnnulation)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Avances[0].MotifAnnulation)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Avances[0].MotifRejet)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Avances[0].MotifRejet)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Avances[0].TraitementRP)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Avances[0].TraitementRP)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Avances[0].DateTraitementRP)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Avances[0].DateTraitementRP)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Avances[0].TraitementRE)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Avances[0].TraitementRE)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Avances[0].DateTraitementRE)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Avances[0].DateTraitementRE)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Avances[0].TraitementDIR)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Avances[0].TraitementDIR)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Avances[0].DateTraitementDIR)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Avances[0].DateTraitementDIR)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Avances[0].Comptabilise)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Avances[0].Comptabilise)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Avances[0].AvanceEnvoyee)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Avances[0].AvanceEnvoyee)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Avances[0].Employe.Matricule)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Avances[0].Employe.Matricule)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Avances[0].RespExploitation.Prenom)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Avances[0].RespExploitation.Prenom)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Avances[0].RespPortefeuille.Prenom)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Avances[0].RespPortefeuille.Prenom)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Avances[0].Directeur.Prenom)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Avances[0].Directeur.Prenom)
+            </dd>
+
+
+            <dt class="col-sm-3">
+                <p>
+                    
+                </p>
+            </dt>
+
+            <dd class="col-sm-9">
+                <p>
+                    @Html.ActionLink("Fermer  ", "Index", "Manager", new { @class = "btn btn-info  pull-rigth" })
+
+                    @if (Model.Utilisateur.Habilitation != "PAIE" && Model.Utilisateur.Habilitation != "COMPTABILITE" && Model.Avances[0].Statut != "APPROUVEE" && Model.Avances[0].Statut != "REJETTEE")
+                    {
+                        @Html.ActionLink("Rejetter ", "RejetterAvance", "Manager", new { id = Model.Avances[0].IdRequete }, new { @class = "btn btn-danger pull-rigth " })
+                    }
+                </p>
+            </dd>
+
+
+        </dl>
+    </div>
+    
+
+
+</section>

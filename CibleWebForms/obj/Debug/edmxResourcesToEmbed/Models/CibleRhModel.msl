@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CibleRhWebAppModelStoreContainer" CdmEntityContainer="CibleRhWebAppEntities">
+    <EntitySetMapping Name="Avances">
+      <EntityTypeMapping TypeName="CibleRhWebAppModel.Avance">
+        <MappingFragment StoreEntitySet="Avance">
+          <ScalarProperty Name="IdRequete" ColumnName="IdRequete" />
+          <ScalarProperty Name="CodeRequete" ColumnName="CodeRequete" />
+          <ScalarProperty Name="IdEmploye" ColumnName="IdEmploye" />
+          <ScalarProperty Name="Montant" ColumnName="Montant" />
+          <ScalarProperty Name="Pourcentage" ColumnName="Pourcentage" />
+          <ScalarProperty Name="DelaiEnMois" ColumnName="DelaiEnMois" />
+          <ScalarProperty Name="MotifRequete" ColumnName="MotifRequete" />
+          <ScalarProperty Name="DateRequete" ColumnName="DateRequete" />
+          <ScalarProperty Name="Statut" ColumnName="Statut" />
+          <ScalarProperty Name="MotifAnnulation" ColumnName="MotifAnnulation" />
+          <ScalarProperty Name="MotifRejet" ColumnName="MotifRejet" />
+          <ScalarProperty Name="IdRP" ColumnName="IdRP" />
+          <ScalarProperty Name="TraitementRP" ColumnName="TraitementRP" />
+          <ScalarProperty Name="DateTraitementRP" ColumnName="DateTraitementRP" />
+          <ScalarProperty Name="IdRE" ColumnName="IdRE" />
+          <ScalarProperty Name="TraitementRE" ColumnName="TraitementRE" />
+          <ScalarProperty Name="DateTraitementRE" ColumnName="DateTraitementRE" />
+          <ScalarProperty Name="IdDIR" ColumnName="IdDIR" />
+          <ScalarProperty Name="TraitementDIR" ColumnName="TraitementDIR" />
+          <ScalarProperty Name="DateTraitementDIR" ColumnName="DateTraitementDIR" />
+          <ScalarProperty Name="Comptabilise" ColumnName="Comptabilise" />
+          <ScalarProperty Name="AvanceEnvoyee" ColumnName="AvanceEnvoyee" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employes">
+      <EntityTypeMapping TypeName="CibleRhWebAppModel.Employe">
+        <MappingFragment StoreEntitySet="Employe">
+          <ScalarProperty Name="DateEnregistrement" ColumnName="DateEnregistrement" />
+          <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Statut" ColumnName="Statut" />
+          <ScalarProperty Name="IdEmploye" ColumnName="IdEmploye" />
+          <ScalarProperty Name="Matricule" ColumnName="Matricule" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="IdSociete" ColumnName="IdSociete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Societes">
+      <EntityTypeMapping TypeName="CibleRhWebAppModel.Societe">
+        <MappingFragment StoreEntitySet="Societe">
+          <ScalarProperty Name="IdSociete" ColumnName="IdSociete" />
+          <ScalarProperty Name="RaisonSociale" ColumnName="RaisonSociale" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Utilisateurs">
+      <EntityTypeMapping TypeName="CibleRhWebAppModel.Utilisateur">
+        <MappingFragment StoreEntitySet="Utilisateur">
+          <ScalarProperty Name="IdUtilisateur" ColumnName="IdUtilisateur" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+          <ScalarProperty Name="Habilitation" ColumnName="Habilitation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

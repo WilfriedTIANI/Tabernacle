@@ -1,0 +1,86 @@
+﻿@model TabernacleManager.Models.TabernacleManagerView
+
+@if (Model == null)
+{
+    <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">HEADER</li>
+        <!-- Optionally, you can add icons to the links -->
+        <li class="active"><a href="@Url.Action("Index", "Manager")"><i class="fa fa-link"></i> <span>Link</span></a></li>
+        <li><a href="@Url.Action("Index", "Manager")"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+        <li class="treeview">
+            <a href="@Url.Action("Index", "Manager")">
+                <i class="fa fa-link"></i> <span>Multilevel</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="@Url.Action("Index", "Manager")">Link in level 2</a></li>
+                <li><a href="@Url.Action("Index", "Manager")">Link in level 2</a></li>
+            </ul>
+        </li>
+    </ul>
+}
+else if (Model.Utilisateur.Habilitation == "PAIE" | Model.Utilisateur.Habilitation == "COMPTABILITE")
+{
+    <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">Menu De Navigation</li>
+        <!-- Optionally, you can add icons to the links -->
+        <li class="active"><a href="@Url.Action("Index", "Manager")"><i class="fa fa-link"></i> <span>Consultation</span></a></li>
+    </ul>
+}
+else if (Model.Utilisateur.Habilitation == "RESPONSABLE PORTEFEUILLE")
+{
+    <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">Menu De Navigation</li>
+        <!-- Optionally, you can add icons to the links -->
+        <li><a href="@Url.Action("Index", "Manager")"><i class="fa fa-link"></i> <span>Consultation</span></a></li>
+        <li><a href="@Url.Action("AvancesByStatus", "Manager",new { statut = "APPROUVEE" })"><i class="fa fa-link"></i> <span>Approuvees</span></a></li>
+        <li><a href="@Url.Action("AvancesByStatus", "Manager",new { statut = "REJETTEE" })"><i class="fa fa-link"></i> <span>Rejetees</span></a></li>
+        <li><a href="@Url.Action("Index", "Manager")"><i class="fa fa-link"></i> <span>Portefeuilles</span></a></li>
+    </ul>
+}
+else if (Model.Utilisateur.Habilitation == "RESPONSABLE EXPLOITATION")
+{
+    <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">Menu De Navigation</li>
+        <!-- Optionally, you can add icons to the links -->
+        <li><a href="@Url.Action("Index", "Manager")"><i class="fa fa-link"></i> <span>Consultation</span></a></li>
+        <li><a href="@Url.Action("AvancesByStatus", "Manager",new { statut = "APPROUVEE" })"><i class="fa fa-link"></i> <span>Approuvees</span></a></li>
+        <li><a href="@Url.Action("AvancesByStatus", "Manager",new { statut = "REJETTEE" })"><i class="fa fa-link"></i> <span>Rejetees</span></a></li>
+    </ul>
+}
+else if (Model.Utilisateur.Habilitation == "DIRECTION" && !Model.Utilisateur.EstAdmin)
+{
+    <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">Menu De Navigation</li>
+        <!-- Optionally, you can add icons to the links -->
+        <li><a href="@Url.Action("Index", "Manager")"><i class="fa fa-link"></i> <span>Consultation</span></a></li>
+        <li><a href="@Url.Action("AvancesByStatus", "Manager",new { statut = "APPROUVEE" })"><i class="fa fa-link"></i> <span>Approuvees</span></a></li>
+        <li><a href="@Url.Action("AvancesByStatus", "Manager",new { statut = "REJETTEE" })"><i class="fa fa-link"></i> <span>Rejetees</span></a></li>
+        <li><a href="@Url.Action("Index", "Manager")"><i class="fa fa-link"></i> <span>Portefeuilles</span></a></li>
+    </ul>
+}
+else if (Model.Utilisateur.Habilitation == "DIRECTION" && Model.Utilisateur.EstAdmin)
+{
+    <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">Menu De Navigation</li>
+        <!-- Optionally, you can add icons to the links -->
+        <li><a href="@Url.Action("Index", "Manager")"><i class="fa fa-link"></i> <span>Consultation</span></a></li>
+        <li><a href="@Url.Action("AvancesByStatus", "Manager",new { statut = "APPROUVEE" })"><i class="fa fa-link"></i> <span>Approuvees</span></a></li>
+        <li><a href="@Url.Action("AvancesByStatus", "Manager",new { statut = "REJETTEE" })"><i class="fa fa-link"></i> <span>Rejetes</span></a></li>
+        <li><a href="@Url.Action("Index", "Manager")"><i class="fa fa-link"></i> <span>Portefeuilles</span></a></li>
+        <li class="treeview">
+            <a href="@Url.Action("Index", "Manager")">
+                <i class="fa fa-link"></i> <span>Gestion Acces</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="@Url.Action("Index", "Manager")">Employes</a></li>
+                <li><a href="@Url.Action("Index", "Manager")">Utilisateurs</a></li>
+            </ul>
+        </li>
+    </ul>
+}

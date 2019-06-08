@@ -1,0 +1,83 @@
+﻿@model IEnumerable<CibleWebForms.Models.Avance>
+
+@{
+
+    Layout = "~/Views/SharedConnected/_LayoutConnected.cshtml";
+    ViewBag.Title = "DashBoard";
+    
+}
+
+<h2>Liste Avances</h2>
+
+
+
+<div class="table-responsive">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CodeRequete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pourcentage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateRequete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Statut)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MotifRejet)
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CodeRequete)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Pourcentage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateRequete)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Statut)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MotifRejet)
+                </th>
+                <th></th>
+            </tr>
+        </tfoot>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CodeRequete)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Pourcentage)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateRequete)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Statut)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MotifRejet)
+                    </td>
+                    <td>
+                        @*@Html.ActionLink("Details", "Details","Navigation", new { CodeRequete = item.CodeRequete }) |
+                        @Html.ActionLink("Supprimer", "Delete", "Navigation",  new { CodeRequete = item.CodeRequete })*@
+                    </td>
+                </tr>
+            }
+
+</table>
+</div>
