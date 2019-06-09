@@ -87,3 +87,4 @@ E:\Documents\Projects\WindowsProjects\CibleWebForms\Tabernacle\TabernacleManager
 E:\Documents\Projects\WindowsProjects\CibleWebForms\Tabernacle\TabernacleManager\bin\Antlr3.Runtime.pdb
 E:\Documents\Projects\WindowsProjects\CibleWebForms\Tabernacle\TabernacleManager\obj\Debug\TabernacleManager.dll
 E:\Documents\Projects\WindowsProjects\CibleWebForms\Tabernacle\TabernacleManager\obj\Debug\TabernacleManager.pdb
+E:\Documents\Projects\WindowsProjects\CibleWebForms\Tabernacle\TabernacleManager\obj\Debug\TabernacleManager.csprojResolveAssemblyReference.cache
