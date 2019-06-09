@@ -32,7 +32,12 @@ namespace TabernacleManager.Helpers
             {
                 using (CibleRhWebAppEntities bdd = new CibleRhWebAppEntities())
                 {
-                    tmView.Avances = bdd.Avances.Where(a => a.Statut == "REQUETE EN ATTENTE" && a.IdRP == user.IdUtilisateur).Include(a => a.Employe).Include(a => a.RespExploitation).Include(a => a.RespPortefeuille).Include(a => a.Directeur).ToList();
+                    user = bdd.Utilisateurs.Where(a => a.IdUtilisateur == user.IdUtilisateur).Include(a => a.Societes).FirstOrDefault();
+                    List<int> idSocietes = new List<int>();
+                    foreach (var societe in user.Societes)
+                        idSocietes.Add(societe.IdSociete);
+                    var tmp = bdd.Avances.Where(a => a.Statut == "REQUETE EN ATTENTE").Include(a => a.Employe).Include(a => a.RespExploitation).Include(a => a.RespPortefeuille).Include(a => a.Directeur).ToList();
+                    tmView.Avances = tmp.Where(e => idSocietes.Contains(e.Employe.IdSociete)).ToList();
                 }
             }
             else if (user.Habilitation == "RESPONSABLE EXPLOITATION")
@@ -145,8 +150,8 @@ namespace TabernacleManager.Helpers
                     List<int> idSocietes = new List<int>();
                     foreach (var societe in user.Societes)
                         idSocietes.Add(societe.IdSociete);
-                    var tmp = bdd.Avances.Include(a => a.Employe).Include(a => a.RespExploitation).Include(a => a.RespPortefeuille).Include(a => a.Directeur).Where(a => a.Statut == statut && idSocietes.Contains(a.Employe.IdSociete)).ToList();
-                    tmView.Avances = new List<Avance>();
+                    var tmp = bdd.Avances.Include(a => a.Employe).Include(a => a.RespExploitation).Include(a => a.RespPortefeuille).Include(a => a.Directeur).Where(a => a.Statut == statut ).ToList();
+                    tmView.Avances = tmp.Where(e => idSocietes.Contains(e.Employe.IdSociete)).ToList();
                 }
                 else
                 {
@@ -156,5 +161,59 @@ namespace TabernacleManager.Helpers
                 return tmView;
 
         }
+
+
+        public static bool ValierAvanceById(string idUtilisateur, int idAvance)
+        {
+            try
+            {
+                Avance avance;
+                Utilisateur user = UtilisateurHelper.ObtenirUtilisateur(idUtilisateur);
+                using (CibleRhWebAppEntities bdd = new CibleRhWebAppEntities())
+                {
+                    avance = bdd.Avances.Find(idAvance);
+                    if (user.Habilitation == "RESPONSABLE PORTEFEUILLE")
+                    {
+                        avance.TraitementRP = false;
+                        avance.IdRP = user.IdUtilisateur;
+                        avance.DateTraitementRP = DateTime.Now;
+
+                        avance.Statut = "VALIDATION PORTEFEUILLE";
+                    }
+                    else if (user.Habilitation == "RESPONSABLE EXPLOITATION")
+                    {
+                        avance.TraitementRE = false;
+                        avance.IdRE = user.IdUtilisateur;
+                        avance.DateTraitementRE = DateTime.Now;
+                        if(avance.Pourcentage<30)
+                            avance.Statut = "VALIDATION EXPLOITATION";
+                        else
+                            avance.Statut = "APPROUVEE";
+                    }
+                    else if (user.Habilitation == "DIRECTION")
+                    {
+                        avance.TraitementDIR = false;
+                        avance.IdDIR = user.IdUtilisateur;
+                        avance.DateTraitementDIR = DateTime.Now;
+
+                        avance.Statut = "APPROUVEE";
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                    bdd.SaveChanges();
+                }
+
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+
     }
 }

@@ -58,5 +58,17 @@ namespace TabernacleManager.Controllers
             else
                 return HttpNotFound();
         }
+
+        public ActionResult ValiderAvance(int idAvance)
+        {
+            ;
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                var user = TabernacleManagerViewHelper.ValierAvanceById(HttpContext.User.Identity.Name, idAvance);
+                return View(user);
+            }
+            else
+                return HttpNotFound();
+        }
     }
 }

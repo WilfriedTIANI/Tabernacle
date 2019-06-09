@@ -196,6 +196,9 @@
 
                     @if (Model.Utilisateur.Habilitation != "PAIE" && Model.Utilisateur.Habilitation != "COMPTABILITE" && Model.Avances[0].Statut != "APPROUVEE" && Model.Avances[0].Statut != "REJETTEE")
                     {
+                        <button hidden></button>
+                        @Html.ActionLink("Valider ", "ValiderAvance", "Manager", new { id = Model.Avances[0].IdRequete }, new { @class = "btn btn-success pull-rigth " })
+                        <button hidden></button>
                         @Html.ActionLink("Rejetter ", "RejetterAvance", "Manager", new { id = Model.Avances[0].IdRequete }, new { @class = "btn btn-danger pull-rigth " })
                     }
                 </p>
